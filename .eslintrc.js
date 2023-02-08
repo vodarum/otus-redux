@@ -5,7 +5,6 @@ module.exports = {
     "jest/globals": true,
   },
   extends: ["airbnb-base", "plugin:@typescript-eslint/recommended", "prettier"],
-  overrides: [],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: "latest",
@@ -24,7 +23,18 @@ module.exports = {
         tsx: "never",
       },
     ],
+    "no-restricted-syntax": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": "off",
   },
+  overrides: [
+    {
+      files: ["*.test.[tj]s"],
+      rules: {
+        "default-param-last": "off",
+      },
+    },
+  ],
   settings: {
     "import/resolver": {
       node: {
